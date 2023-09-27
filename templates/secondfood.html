@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hot_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Second Meal :)
+      </h2>
+      <hr>
+    </div>
+    <p>
+      There are many variations of passages of Lorem Ipsum available, but the majority
+    </p>
+  </div>
+
+  <div class="container">
+   
+    <div class="card" style="display: flex; padding: auto;">
+      
+      <div class="" style="display: flex; flex-wrap: wrap;">
+        {% for meal in meals %}
+        <div class="box" style="margin-left: 80px;">
+            <div class=""  style=" margin-right: 30px; ">
+                <div class="card-image">
+                  <figure class="image is-4by3" style="margin-top: 20px; margin-bottom: 20px;">
+                    <img src="{{meal.image.url}}" alt="Placeholder image" style="width: 200px; height: 200px;">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+          
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">{{meal.title}}</p>
+                      <p class="subtitle is-6">{{meal.about}}</p>
+                    </div>
+                  </div>
+          
+                  <div class="content">
+                    {{meal.ingredient}}
+                    <br>
+                    <h6>{{meal.price}}$</h6>
+                    <br>
+                    <button type="button" class="btn btn-primary" style="margin-bottom: 20px;">Order Now</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+  
+</section>
+
+{% endblock %}

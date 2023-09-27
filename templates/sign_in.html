@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Signin</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body><br><br><br>
+    <div class="container">
+        <div class="body2" style="text-align: center;">
+            <div class="login-box">
+                <h1 class="title">Sign in</h1>
+                <form method="POST">
+                    <br>
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    <p class="error">Пожалуйста, исправьте следующие ошибки:</p>
+                    <ul class="errorlist">
+                        {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% for field in form %}
+                    <br>
+                    <label>{{ field.label }}</label>
+                    <br>
+                    {{ field }}
+                    {% endfor %}
+                    <br>
+                    <br>
+                    <button class="but-input">Submit</button>
+                    <br>
+                    <br>
+                    <p class="para-2">
+                        I haven't account! <a href="{% url 'sign_up' %}">Create account</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

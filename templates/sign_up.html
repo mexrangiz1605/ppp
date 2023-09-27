@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="websise icon" type="webp" href="{% static 'img/room/logokia.webp' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body><br><br><br>
+
+    <div class="body">
+        <div class="container">
+            <div class="signup-box" style="text-align: center;">
+
+                <h1 class="title">Sign up</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <br>
+                    <br>
+                    <br>
+                    <label>{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                    <ul class="errorlist">
+                        {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endfor %}
+                    <br>
+                    <br>
+
+                    <button class="button is-black">Submit</button>
+                    <br>
+                    <br>
+
+                    <p class="para-2">
+                        I have an account! <a href="{% url 'sign_in' %}">Enter Signin</a><br><br>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

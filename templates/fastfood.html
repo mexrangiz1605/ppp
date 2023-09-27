@@ -1,0 +1,62 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hot_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        FastFood :)
+      </h2>
+      <hr>
+    </div>
+    <p>
+      There are many variations of passages of Lorem Ipsum available, but the majority
+    </p>
+  </div>
+
+  <div class="container">
+   
+    <div class="card" style="display: flex; padding: auto;">
+      
+      <div class="" style="display: flex; flex-wrap: wrap;">
+        {% for fasts in fast %}
+        <div class="box" style="margin-left: 90px;">
+            <div class=""  style=" margin-right: 130px; ">
+                <div class="card-image">
+                  <figure class="image is-4by3" style="margin-top: 20px;">
+                    <img src="{{fasts.image.url}}" alt="Placeholder image" style="width: 300px; height: 230px;">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-left">
+                      <figure class="image is-48x48">
+          
+                      </figure>
+                    </div>
+                    <div class="media-content">
+                      <p class="title is-4">{{fasts.title}}</p>
+                      <p class="subtitle is-6">{{fasts.about}}</p>
+                    </div>
+                  </div>
+          
+                  <div class="content">
+                    {{fasts.ingredient}}
+                    <br>
+                    <h6>{{fasts.price}}$</h6>
+                    <br>
+                    <button type="button" class="btn btn-primary">Order Now</button>
+                  </div>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+  
+</section>
+
+{% endblock %}

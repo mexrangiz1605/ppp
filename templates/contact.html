@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contect</title>
+  <link rel="stylesheet" type="text/css"
+    href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css' %}" />
+
+  <!-- bulma -->
+  <link rel="stylesheet" href="{% static 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css' %}"
+    integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link
+    href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap' %}"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  <section class="contact_section layout_padding-bottom " style="margin-top: 100px;">
+    <div class="container">
+      <h2>
+        Get In touch
+      </h2>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="form_container">
+            <form action="" method="POST">
+              {% csrf_token %}
+              {{form}}
+              <button>
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="contact_box">
+            <a
+              href="https://www.google.com/maps/d/viewer?mid=1Dn05jKVkkFO-1pMcELzTKW1hPWU&hl=en&ll=30.399789000000023%2C-87.776899&z=17">
+              <div class="img-box">
+                <img src="{% static 'images/location.png' %}" alt="">
+              </div>
+              <h6>
+                Gb road 123 london Uk
+              </h6>
+            </a>
+            <a href="">
+              <div class="img-box">
+                <img src="{% static 'images/call.png' %}" alt="">
+              </div>
+              <h6>
+                (+01) 123456789012
+              </h6>
+            </a>
+            <a href="https://mail.google.com/mail/u/0/#inbox">
+              <div class="img-box">
+                <img src="{% static 'images/envelope.png' %}" alt="">
+              </div>
+              <h6>
+                demo@gmail.com
+              </h6>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>
